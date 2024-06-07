@@ -25,7 +25,11 @@ services:
       - "traefik.http.routers.portainer-secure.service=${SERVICE-NAME}"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
       - "traefik.docker.network=proxy"
-
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: "8g"
 networks:
   proxy:
     external: true
